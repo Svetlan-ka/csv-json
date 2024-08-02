@@ -11,8 +11,25 @@ public class Main {
         String[] columnMapping = {"id", "firstName", "lastName", "country", "age"};
         String fileName = "data.csv";
 
-        List<Employee> list = parseCSV(columnMapping, fileName);
-        String json = listToJson(list);
-        writeString(json);
+//         задание 1
+        List<Employee> listCSV = parseCSV(columnMapping, fileName);
+        String jsonCSV = listToJson(listCSV);
+        writeString(jsonCSV);
+
+//         задание 2
+        List<Employee> listXML = parseXML();
+        String jsonXML = listToJson(listXML);
+        writeString(jsonXML);
+
+//          задание 3
+        String json = readString("new_data.json");
+        List<Employee> list = jsonToList(json);
+        System.out.println("> Task :Main.main()");
+
+        String deletesSquareBracket = list.toString();
+        deletesSquareBracket = deletesSquareBracket.substring(1,
+                deletesSquareBracket.length() - 1);
+        System.out.println(deletesSquareBracket);
+
     }
 }
